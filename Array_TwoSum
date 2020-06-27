@@ -1,0 +1,41 @@
+//Brute force method
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n=nums.size();
+        vector<int> v;
+        for(int i=0; i<n-1; i++)
+        {
+            for(int j=i+1; j<n; i++)
+            {
+                if(target-nums[i]==nums[j])
+                    v.push_back(i);
+                    v.push_back(j);
+                    return v;
+            }
+            
+        }
+    return v;
+    }
+        
+};
+
+
+//Two-pass Hash Table
+vector<int> twoSum(vector<int>& nums, int target) {
+        int n=nums.size();
+        map<int,int> m;
+        vector<int> sol;
+        for(int i=0; i<n; i++)
+        {
+            if(m.find(target-nums[i])!=m.end())
+            {
+                sol.push_back(m[target-nums[i]]);
+                sol.push_back(i);
+                return sol;
+            }
+            else
+                m[nums[i]]=i;
+        }
+        return sol;
+    }
