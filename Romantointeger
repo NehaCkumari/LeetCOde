@@ -1,0 +1,15 @@
+int romanToInt(string s) {
+        map<char,int> roman={{'I',1},{'V',5},{'X',10},{'L',50},{'C',100},{'D',500},                   {'M',1000}};
+        //MMLVII (1,000+1,000+50+5+1+1) = 2,057
+        //XIX (10 + (10 − 1)) = 19
+        int total=0;
+        for(int i=0; i<s.length(); i++)
+        {
+            if(roman[s[i+1]]<=roman[s[i]]){total+=roman[s[i]];}
+            else{total-=roman[s[i]];}
+        }
+        return total;
+        
+        
+        
+    }
